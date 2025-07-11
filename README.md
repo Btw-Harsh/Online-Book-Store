@@ -11,66 +11,53 @@ A full-stack online bookstore web application built with Spring Boot and a respo
 
 ## ✅ Feature Overview
 
-| Feature                 | Status     | Description                                                |
-|------------------------|------------|-------------------------------------------------------------|
-| 🏠 Home Page           | ✅ Done    | Landing page with search and filters                       |
-| 📚 Book Listing        | ✅ Done    | Dynamic book listing from backend                          |
-| ➕ Add Book (Admin)    | ✅ Done    | Admin-only book upload form                                |
-| 👤 Signup/Login        | ✅ Done    | Auth with role-based redirection                           |
-| 🔐 Role-Based Access   | ✅ Done    | ADMIN → admin.html, USER → books.html                      |
-| 🛒 Cart + Order        | ✅ Done    | View cart, remove items, place orders                      |
-| 🔐 Spring Security     | ✅ Configured | Secured APIs & static resource access                   |
-| 🧠 MySQL Database      | ✅ Connected | Auto-creates book, user, orders tables                   |
-| 🧪 Testing             | 🟡 In Progress | Manual tests done, unit tests pending                  |
-| 🧑‍💻 Admin Panel       | ✅ Partial | UI done, links under development                             |
+| Feature                 | Status     | Description                                                   |
+|------------------------|-------------|---------------------------------------------------------------|
+| 🏠 Home Page           | ✅ Done       | Landing page with search and filters                       |
+| 📚 Book Listing        | ✅ Done       | Dynamic book listing from backend                          |
+| ➕ Add Book (Admin)    | ✅ Done       | Admin-only book upload form                                |
+| 👤 Signup/Login        | ✅ Done       | Auth with role-based redirection                           |
+| 🔐 Role-Based Access   | ✅ Done       | ADMIN → admin.html, USER → books.html                      |
+| 🛒 Cart + Order        | ✅ Done       | View cart, remove items, place orders                      |
+| 🔐 Spring Security     | ✅ Configured | Secured APIs & static resource access                      |
+| 🧠 MySQL Database      | ✅ Connected  | Auto-creates book, user, orders tables                     |
+| 🧪 Testing             | ✅ Done       | Manual tests done, unit tests pending                      |
+| 🧑‍💻 Admin Panel         | ✅ Partial    | UI done, links under development                           |
 
 ---
 
 ## 📁 Project Directory Structure
 
 ```
-
 onlinebookstore/
 ├── src/
-│   └── main/
-│       ├── java/com.example.onlinebookstore/
-│       │   ├── controller/
-│       │   │   ├── BookController.java
-│       │   │   ├── UserController.java
-│       │   │   └── OrderController.java
-│       │   ├── model/
-│       │   │   ├── Book.java
-│       │   │   ├── User.java
-│       │   │   └── Order.java
-│       │   ├── repository/
-│       │   │   ├── BookRepository.java
-│       │   │   ├── UserRepository.java
-│       │   │   └── OrderRepository.java
-│       │   ├── service/
-│       │   │   ├── BookService.java
-│       │   │   ├── BookServiceImpl.java
-│       │   │   ├── UserService.java
-│       │   │   ├── UserServiceImpl.java
-│       │   │   ├── OrderService.java
-│       │   │   └── OrderServiceImpl.java
-│       │   ├── config/
-│       │   │   └── SecurityConfig.java
-│       │   └── OnlinebookstoreApplication.java
-│       └── resources/
-│           ├── static/
-│           │   ├── index.html
-│           │   ├── books.html
-│           │   ├── login.html
-│           │   ├── add-book.html
-│           │   ├── cart.html
-│           │   ├── admin.html
-│           │   ├── contactus.html
-│           │   ├── about.html
-│           │   └── style.css
-│           └── application.properties
-├── pom.xml
-
-````
+│ └── main/
+│ ├── java/com/example/onlinebookstore/
+│ │ ├── controller/
+│ │ │ ├── BookController.java
+│ │ │ ├── UserController.java
+│ │ │ └── OrderController.java
+│ │ ├── model/
+│ │ │ ├── Book.java
+│ │ │ ├── User.java
+│ │ │ └── Order.java
+│ │ ├── repository/
+│ │ │ ├── BookRepository.java
+│ │ │ ├── UserRepository.java
+│ │ │ └── OrderRepository.java
+│ │ ├── service/
+│ │ │ ├── BookService.java / BookServiceImpl.java
+│ │ │ ├── UserService.java / UserServiceImpl.java
+│ │ │ ├── OrderService.java / OrderServiceImpl.java
+│ │ ├── config/
+│ │ │ └── SecurityConfig.java
+│ │ └── OnlinebookstoreApplication.java
+│ └── resources/
+│ ├── static/
+│ │ ├── index.html, books.html, cart.html, admin.html, etc.
+│ │ ├── style.css, images, JavaScript files
+│ └── application.properties
+└── pom.xml`
 
 ---
 
