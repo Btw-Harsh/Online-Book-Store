@@ -28,7 +28,6 @@ A full-stack online bookstore web application built with Spring Boot and a respo
 
 ## 📁 Project Directory Structure
 
-```
 onlinebookstore/
 ├── src/
 │ └── main/
@@ -58,6 +57,9 @@ onlinebookstore/
 │ │ ├── style.css, images, JavaScript files
 │ └── application.properties
 └── pom.xml`
+
+```
+
 
 ---
 
