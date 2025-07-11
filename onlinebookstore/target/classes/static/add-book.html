@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add New Book - BookNest Admin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Bootstrap & Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'DM Serif Text', serif;
+      background-color: #f5f5f5;
+    }
+    .container {
+      max-width: 600px;
+      margin-top: 60px;
+      background: #fff;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #00bcd4;
+    }
+    .btn-primary {
+      background-color: #00bcd4;
+      border: none;
+      font-weight: bold;
+    }
+    .btn-primary:hover {
+      background-color: #0097a7;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Add New Book</h2>
+  <form id="bookForm">
+    <div class="mb-3">
+      <label for="title" class="form-label">Book Title</label>
+      <input type="text" class="form-control" id="title" required>
+    </div>
+    <div class="mb-3">
+      <label for="author" class="form-label">Author</label>
+      <input type="text" class="form-control" id="author" required>
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      <textarea class="form-control" id="description" rows="3" required></textarea>
+    </div>
+    <div class="mb-3">
+      <label for="price" class="form-label">Price</label>
+      <input type="number" class="form-control" id="price" step="0.01" required>
+    </div>
+    <div class="mb-3">
+      <label for="imageUrl" class="form-label">Image URL</label>
+      <input type="text" class="form-control" id="imageUrl">
+    </div>
+    <button type="submit" class="btn btn-primary w-100">Add Book</button>
+  </form>
+</div>
+
+<!-- JS Logic -->
+<script>
+  const bookForm = document.getElementById('bookForm');
+
+  bookForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const bookData = {
+      title: document.getElementById('title').value,
+      author: document.getElementById('author').value,
+      description: document.getElementById('description').value,
+      price: parseFloat(document.getElementById('price').value),
+      imageUrl: document.getElementById('imageUrl').value
+    };
+
+    fetch("http://localhost:8080/api/books", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(bookData)
+    })
+    .then(response => {
+      if (!response.ok) throw new Error("Failed to add book");
+      return response.json();
+    })
+    .then(data => {
+      alert("✅ Book added successfully!");
+      bookForm.reset();
+    })
+    .catch(error => {
+      console.error(error);
+      alert("❌ Failed to add book. Please try again.");
+    });
+  });
+</script>
+
+</body>
+</html>

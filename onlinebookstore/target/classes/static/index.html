@@ -1,0 +1,172 @@
+<!-- Save this as index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Book Nest</title>
+    <link rel="shortcut icon" href="img/favicone.png" type="image/x-icon">
+    
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat&family=DM+Serif+Text&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Navbar -->
+ <nav class="navbar navbar-expand-lg navbar-dark bg-transparent fixed-top">
+  <div class="container">
+    <a class="navbar-brand logo" href="#">
+      BOO<span style="color:#00bcd4;">K N</span>EST
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+    
+    
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link text-light active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light" href="books.html">Books</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light" href="about.html">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light" href="contactus.html">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light" href="login.html">Login/Sign</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+  <!-- Hero -->
+  <section class="bg-hero">
+    <div class="bg-overlay"></div>
+    <div class="hero-content text-light">
+      <h1 class="main-heading" data-aos="fade-down">Welcome to Book Nest</h1>
+      <p class="subheading" data-aos="fade-up">Discover stories. Explore worlds. Elevate your mind.</p>
+      <div class="hero-search d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
+        <input type="text" placeholder="Search books..." class="form-control w-50" id="searchInput">
+        <button onclick="goToBooksPage()" id="searchBtn"><i class="fas fa-search"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filter -->
+  <section class="portfolio-section text-center">
+    <div class="container">
+      <div class="portfolio-menu mb-4">
+        <ul>
+          <li class="active" data-filter="*">All</li>
+          <li data-filter=".fiction">Fiction</li>
+          <li data-filter=".nonfiction">Non-Fiction</li>
+          <li data-filter=".kids">Kids</li>
+        </ul>
+      </div>
+      <div class="row portfolio-item">
+        <div class="col-md-4 item fiction mb-4" data-aos="fade-up">
+          <img src="img/book1.jpg" alt="Fiction Book" />
+        </div>
+        <div class="col-md-4 item nonfiction mb-4" data-aos="fade-up">
+          <img src="img/book2.jpg" alt="Non-Fiction Book" />
+        </div>
+        <div class="col-md-4 item kids mb-4" data-aos="fade-up">
+          <img src="img/book3.jpg" alt="Kids Book" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Book Nest. All rights reserved.</p>
+    <div>
+
+      <a href="instagram.com"><i class="fab fa-instagram"></i></a>
+      <a href="instagram.com"><i class="fab fa-whatsapp"></i></a>
+      <a href="instagram.com"><i class="fab fa-linkedin"></i></a>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <script>
+    AOS.init();
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const iso = new Isotope('.portfolio-item', {
+        itemSelector: '.item',
+        layoutMode: 'fitRows'
+      });
+
+      document.querySelectorAll('.portfolio-menu li').forEach(li => {
+        li.addEventListener('click', function () {
+          document.querySelector('.portfolio-menu .active').classList.remove('active');
+          this.classList.add('active');
+          iso.arrange({ filter: this.getAttribute('data-filter') });
+        });
+      });
+    });
+  </script>
+  <script>
+    AOS.init();
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const iso = new Isotope('.portfolio-item', {
+        itemSelector: '.item',
+        layoutMode: 'fitRows'
+      });
+
+      document.querySelectorAll('.portfolio-menu li').forEach(li => {
+        li.addEventListener('click', function () {
+          document.querySelector('.portfolio-menu .active').classList.remove('active');
+          this.classList.add('active');
+          iso.arrange({ filter: this.getAttribute('data-filter') });
+        });
+      });
+
+
+      const searchBtn = document.querySelector("#searchBtn");
+      if (searchBtn) {
+        searchBtn.addEventListener("click", () => {
+          const keyword = document.getElementById("searchInput").value.trim();
+          if (keyword) {
+            window.location.href = `books.html?search=${encodeURIComponent(keyword)}`;
+          }
+        });
+      }
+    });
+    function goToBooksPage() {
+      const keyword = document.getElementById("searchInput").value.trim();
+      if (keyword) {
+        window.location.href = `books.html?search=${encodeURIComponent(keyword)}`;
+      }
+    }
+  </script>
+
+
+</body>
+</html>
